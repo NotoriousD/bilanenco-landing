@@ -44,6 +44,12 @@
       "Type": "String",
       "Default": "functionpackagesName"
     },
+    "redirectUrl": {
+      "Type": "String"
+    },
+    "callbackUrl": {
+      "Type": "String"
+    },
     "paymentUrl": {
       "Type": "String"
     },
@@ -124,6 +130,12 @@
             },
             "FUNCTION_PACKAGES_NAME": {
               "Ref": "functionpackagesName"
+            },
+            "REDIRECT_URL": {
+              "Ref": "redirectUrl"
+            },
+            "CALLBACK_URL": {
+              "Ref": "callbackUrl"
             },
             "PAYMENT_URL": {
               "Ref": "paymentUrl"

@@ -29,6 +29,9 @@ const AWS = require('aws-sdk');
 const { google } = require('googleapis');
 const docClient = new AWS.DynamoDB.DocumentClient({ apiVersion: "2012-08-10" });
 
+const PACKAGES_TABLE_NAME = `packages-${process.env.ENV}`;
+const ORDERS_TABLE_NAME = `orders-${process.env.ENV}`;
+
 // declare a new express app
 const app = express()
 app.use(bodyParser.json())
@@ -44,7 +47,7 @@ app.use(function(req, res, next) {
 const updateStatus = async (req, res, next) => {
   try {
     await docClient.update({
-      TableName: 'orders-dev',
+      TableName: ORDERS_TABLE_NAME,
       Key: {
         id: req.body.reference,
       },
@@ -69,7 +72,7 @@ const updateStatus = async (req, res, next) => {
 
 const updateCoursePackage = async (req, res, next) => {
   const order = await docClient.get({
-    TableName: 'orders-dev',
+    TableName: ORDERS_TABLE_NAME,
     Key: {
       id: req.body.reference,
     }
@@ -80,15 +83,13 @@ const updateCoursePackage = async (req, res, next) => {
     }
   }).promise();
 
-  console.log('order', order.Item, order);
-
   if(Object.keys(order).length === 0) {
     res.status(404).json({ message: 'Order doesnt exist' });
     return;
   }
 
   const coursePackage = await docClient.get({
-    TableName: 'packages-dev',
+    TableName: PACKAGES_TABLE_NAME,
     Key: {
       id: order.Item.course_id,
     }
@@ -107,7 +108,7 @@ const updateCoursePackage = async (req, res, next) => {
   if(req.body.status === 'failure' || req.body.status === 'reversed' || req.body.status === 'expired') {
     try {
       await docClient.update({
-        TableName: 'packages-dev',
+        TableName: PACKAGES_TABLE_NAME,
         Key: {
           id: coursePackage.Item.id,
         },
@@ -140,10 +141,9 @@ const updateCoursePackage = async (req, res, next) => {
 
 app.post('/status', updateStatus, updateCoursePackage, async (req, res) => {
   const { details } = req;
-  console.log('details', details);
   if(req.body.status === 'success') {
     const auth = new google.auth.GoogleAuth({
-      keyFile: "keys.json", //the key file
+      keyFile: `keys-${process.env.ENV}.json`, //the key file
       scopes: ["https://www.googleapis.com/auth/spreadsheets"], 
     });
   
@@ -154,7 +154,7 @@ app.post('/status', updateStatus, updateCoursePackage, async (req, res) => {
     const googleSheetsInstance = google.sheets({ version: "v4", auth: authClientObject });
   
     // spreadsheet id
-    const spreadsheetId = "1-9Zjv0iCfa-erQmi9-TSf7N422Vb788wnESNPuFeOGc";
+    const spreadsheetId = process.env.GOOGLE_SHEETS_KEY;
   
     const user = [details.fullName, details.email, details.phone, details.courseName, details.price, details.order_status]
   

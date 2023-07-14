@@ -29,5 +29,15 @@
       ]
     }
   },
-  "lambdaLayers": []
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "googleSheetsKey",
+      "environmentVariableName": "GOOGLE_SHEETS_KEY"
+    },
+    {
+      "cloudFormationParameterName": "googleSheetsKey",
+      "environmentVariableName": "GOOGLE_SHEETS_KEY"
+    }
+  ]
 }

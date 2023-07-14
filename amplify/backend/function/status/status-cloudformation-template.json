@@ -55,6 +55,9 @@
     "apiordersApiId": {
       "Type": "String",
       "Default": "apiordersApiId"
+    },
+    "googleSheetsKey": {
+      "Type": "String"
     }
   },
   "Conditions": {
@@ -140,6 +143,9 @@
             },
             "API_ORDERS_APIID": {
               "Ref": "apiordersApiId"
+            },
+            "GOOGLE_SHEETS_KEY": {
+              "Ref": "googleSheetsKey"
             }
           }
         },

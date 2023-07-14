@@ -26,12 +26,28 @@
   "lambdaLayers": [],
   "environmentVariableList": [
     {
+      "cloudFormationParameterName": "redirectUrl",
+      "environmentVariableName": "REDIRECT_URL"
+    },
+    {
+      "cloudFormationParameterName": "callbackUrl",
+      "environmentVariableName": "CALLBACK_URL"
+    },
+    {
       "cloudFormationParameterName": "paymentUrl",
       "environmentVariableName": "PAYMENT_URL"
     },
     {
       "cloudFormationParameterName": "paymentToken",
       "environmentVariableName": "PAYMENT_TOKEN"
+    },
+    {
+      "cloudFormationParameterName": "redirectUrl",
+      "environmentVariableName": "REDIRECT_URL"
+    },
+    {
+      "cloudFormationParameterName": "callbackUrl",
+      "environmentVariableName": "CALLBACK_URL"
     }
   ]
 }

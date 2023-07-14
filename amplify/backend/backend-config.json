@@ -141,6 +141,14 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_orders_callbackUrl": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "orders"
+        }
+      ]
+    },
     "AMPLIFY_function_orders_deploymentBucketName": {
       "usedBy": [
         {
@@ -158,6 +166,14 @@
       ]
     },
     "AMPLIFY_function_orders_paymentUrl": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "orders"
+        }
+      ]
+    },
+    "AMPLIFY_function_orders_redirectUrl": {
       "usedBy": [
         {
           "category": "function",
@@ -197,7 +213,7 @@
         }
       ]
     },
-    "AMPLIFY_function_status_s3Key": {
+    "AMPLIFY_function_status_googleSheetsKey": {
       "usedBy": [
         {
           "category": "function",
@@ -205,43 +221,11 @@
         }
       ]
     },
-    "AMPLIFY_storage_ordersdev_arn": {
+    "AMPLIFY_function_status_s3Key": {
       "usedBy": [
         {
-          "category": "storage",
-          "resourceName": "ordersdev"
-        }
-      ]
-    },
-    "AMPLIFY_storage_ordersdev_partitionKeyName": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "ordersdev"
-        }
-      ]
-    },
-    "AMPLIFY_storage_ordersdev_partitionKeyType": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "ordersdev"
-        }
-      ]
-    },
-    "AMPLIFY_storage_ordersdev_region": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "ordersdev"
-        }
-      ]
-    },
-    "AMPLIFY_storage_ordersdev_tableName": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "ordersdev"
+          "category": "function",
+          "resourceName": "status"
         }
       ]
     }
