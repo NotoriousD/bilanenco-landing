@@ -30,6 +30,9 @@ const docClient = new AWS.DynamoDB.DocumentClient({ apiVersion: "2012-08-10" });
 const { getExchangeRates, monobankCreateInvoice } = require('./monobank')
 const { statuses } = require('./statuses')
 
+const PACKAGES_TABLE_NAME = `packages-${process.env.ENV}`;
+const ORDERS_TABLE_NAME = `orders-${process.env.ENV}`;
+
 // declare a new express app
 const app = express()
 app.use(bodyParser.json())
@@ -44,7 +47,7 @@ app.use(function(req, res, next) {
 
 const getPackageById = async (req, res, next) => {
   const params = {
-    TableName: "packages-dev",
+    TableName: PACKAGES_TABLE_NAME,
     Key: {
       id: req.body.course_id
     }
@@ -97,7 +100,7 @@ const createOrder = async (req, res, next) => {
     }
 
     await docClient.put({
-      TableName: 'orders-dev',
+      TableName: ORDERS_TABLE_NAME,
       Item: newOrder,
     }, (err, data) => {
       if(err) {
@@ -119,7 +122,7 @@ const createOrder = async (req, res, next) => {
 
 const updageAvailablePlaces = async (req, res, next) => {
   await docClient.update({
-    TableName: 'packages-dev',
+    TableName: PACKAGES_TABLE_NAME,
     Key: {
       id: req.course_package.id,
     },
@@ -146,14 +149,14 @@ app.post('/orders', getPackageById, createOrder, updageAvailablePlaces, async fu
       amount: req.order.total_amount,
       productId: req.body.course_id,
       name: req.order.name,
-      redirectUrl: 'https://digitclone.com/',
-      webHookUrl: 'https://6f3johudk1.execute-api.eu-west-1.amazonaws.com/dev/status',
+      redirectUrl: `https://workshop${process.env.ENV === 'dev' ? '-dev' : ''}.bilanenco.com/thank-you`,
+      webHookUrl: `${process.env.CALLBACK_URL}/status`,
       destination: `Оплата курсу WORKSHOP (${req.order.name})`,
     });
 
     if(invoice) {
       await docClient.update({
-        TableName: 'orders-dev',
+        TableName: ORDERS_TABLE_NAME,
         Key: {
           id: req.order.id,
         },

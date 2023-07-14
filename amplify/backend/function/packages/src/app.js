@@ -21,6 +21,8 @@ const awsServerlessExpressMiddleware = require('aws-serverless-express/middlewar
 const AWS = require('aws-sdk')
 const docClient = new AWS.DynamoDB.DocumentClient()
 
+const PACKAGES_TABLE_NAME = `packages-${process.env.ENV}`;
+
 // declare a new express app
 const app = express()
 app.use(bodyParser.json())
@@ -35,7 +37,7 @@ app.use(function(req, res, next) {
 
 app.get('/packages', async function(req, res) {
   const params = {
-    TableName: "packages-dev",
+    TableName: PACKAGES_TABLE_NAME,
   };
   try {
     const data = await docClient.scan(params).promise();

@@ -29,14 +29,17 @@
           "s3Key": "amplify-builds/packages-55344b72576879385559-build.zip"
         },
         "orders": {
+          "deploymentBucketName": "amplify-landing-dev-223805-deployment",
+          "s3Key": "amplify-builds/orders-6969704651426e795a61-build.zip",
           "paymentUrl": "https://api.monobank.ua",
           "paymentToken": "uMrNxUXalAKYIzenGmChD1xOmqOM43imyF5MUUMqmrEA",
-          "deploymentBucketName": "amplify-landing-dev-223805-deployment",
-          "s3Key": "amplify-builds/orders-6969704651426e795a61-build.zip"
+          "redirectUrl": "https://workshop-dev.bilanenco.com",
+          "callbackUrl": "https://6f3johudk1.execute-api.eu-west-1.amazonaws.com/dev"
         },
         "status": {
           "deploymentBucketName": "amplify-landing-dev-223805-deployment",
-          "s3Key": "amplify-builds/status-48465869727937444c54-build.zip"
+          "s3Key": "amplify-builds/status-48465869727937444c54-build.zip",
+          "googleSheetsKey": "1-9Zjv0iCfa-erQmi9-TSf7N422Vb788wnESNPuFeOGc"
         }
       },
       "api": {
@@ -50,6 +53,17 @@
     }
   },
   "prod": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-landing-prod-171414-authRole",
+      "UnauthRoleArn": "arn:aws:iam::177883174913:role/amplify-landing-prod-171414-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::177883174913:role/amplify-landing-prod-171414-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-landing-prod-171414-deployment",
+      "UnauthRoleName": "amplify-landing-prod-171414-unauthRole",
+      "StackName": "amplify-landing-prod-171414",
+      "StackId": "arn:aws:cloudformation:eu-west-1:177883174913:stack/amplify-landing-prod-171414/19ce5390-2259-11ee-bf33-022688b0634d",
+      "AmplifyAppId": "dldcl29opl4t2"
+    },
     "categories": {
       "function": {
         "orders": {
