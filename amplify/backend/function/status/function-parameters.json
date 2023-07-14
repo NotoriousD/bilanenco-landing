@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "storage": {
+      "packages": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ],
+      "orders": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    },
+    "api": {
+      "packages": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ],
+      "orders": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

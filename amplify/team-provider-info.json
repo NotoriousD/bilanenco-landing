@@ -1,0 +1,52 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-landing-dev-223805-authRole",
+      "UnauthRoleArn": "arn:aws:iam::177883174913:role/amplify-landing-dev-223805-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::177883174913:role/amplify-landing-dev-223805-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-landing-dev-223805-deployment",
+      "UnauthRoleName": "amplify-landing-dev-223805-unauthRole",
+      "StackName": "amplify-landing-dev-223805",
+      "StackId": "arn:aws:cloudformation:eu-west-1:177883174913:stack/amplify-landing-dev-223805/2cb55180-21bd-11ee-9990-0ae973c82ba1",
+      "AmplifyAppId": "dldcl29opl4t2"
+    },
+    "categories": {
+      "storage": {
+        "ordersdev": {
+          "tableName": "orders-dev",
+          "region": "eu-west-1",
+          "arn": "arn:aws:dynamodb:eu-west-1:177883174913:table/orders-dev",
+          "partitionKeyName": "id",
+          "partitionKeyType": "S"
+        },
+        "packages": {},
+        "orders": {}
+      },
+      "function": {
+        "packages": {
+          "deploymentBucketName": "amplify-landing-dev-223805-deployment",
+          "s3Key": "amplify-builds/packages-55344b72576879385559-build.zip"
+        },
+        "orders": {
+          "paymentUrl": "https://api.monobank.ua",
+          "paymentToken": "uMrNxUXalAKYIzenGmChD1xOmqOM43imyF5MUUMqmrEA",
+          "deploymentBucketName": "amplify-landing-dev-223805-deployment",
+          "s3Key": "amplify-builds/orders-6969704651426e795a61-build.zip"
+        },
+        "status": {
+          "deploymentBucketName": "amplify-landing-dev-223805-deployment",
+          "s3Key": "amplify-builds/status-48465869727937444c54-build.zip"
+        }
+      },
+      "api": {
+        "packages": {},
+        "orders": {},
+        "status": {}
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
+      }
+    }
+  }
+}

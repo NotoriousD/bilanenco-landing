@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/packages": {
+      "name": "/packages",
+      "lambdaFunction": "packages",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

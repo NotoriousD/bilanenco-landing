@@ -1,0 +1,10 @@
+{
+  "resourceName": "packages",
+  "tableName": "packages",
+  "partitionKey": {
+    "fieldName": "id",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}
