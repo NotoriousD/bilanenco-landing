@@ -41,7 +41,7 @@ const uuid = require('uuid');
 const { validation } = require('./validation')
 const AWS = require('aws-sdk')
 const docClient = new AWS.DynamoDB.DocumentClient({ apiVersion: "2012-08-10" });
-const { getExchangeRates, monobankCreateInvoice } = require('./monobank')
+const { monobankCreateInvoice } = require('./monobank')
 const { statuses } = require('./statuses')
 
 const PACKAGES_TABLE_NAME = `packages-${process.env.ENV}`;
@@ -96,12 +96,7 @@ const createOrder = async (req, res, next) => {
   }
 
   try {
-    let total_amount;
-    const rate = await getExchangeRates();
-
-    if(rate) {
-      total_amount = Math.floor(req.course_package.price * rate) * 100;
-    }
+    let total_amount = Math.floor(req.course_package.price * 37.4406) * 100;
 
     const newOrder = {
       ...req.body,

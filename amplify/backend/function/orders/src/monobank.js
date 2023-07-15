@@ -49,6 +49,7 @@ exports.monobankCreateInvoice = async ({
             },
             redirectUrl,
             webHookUrl,
+            validity: 3600,
         }, {
             headers: {
                 'X-Token': token,
