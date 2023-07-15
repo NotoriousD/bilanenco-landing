@@ -38,6 +38,11 @@ $accent: #FFD34B;
     &:hover {
         background-color: darken($accent, 10%);
     }
+
+    &:disabled {
+        background-color: #a98615;
+        cursor: default;
+    }
 }
 
 .header {
@@ -210,8 +215,14 @@ $accent: #FFD34B;
     color: $accent;
     font-size: 24px;
     font-weight: 700;
-    margin-bottom: 60px;
     text-align: center;
+    margin-bottom: 10px;
+}
+
+.availablePlaces {
+    text-align: center;
+    color: $accent;
+    margin-bottom: 60px;
 }
 
 .benefits {
@@ -248,7 +259,7 @@ $accent: #FFD34B;
 }
 
 @media screen and (max-width: 950px) {
-    .packagesTitle {
+    .availablePlaces {
         margin-bottom: 30px;
     }
 }

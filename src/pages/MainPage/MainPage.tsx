@@ -10,6 +10,12 @@ import { Registration, Package } from "components/Registration";
 
 import css from './main.module.scss';
 
+const availablePlacesMock: Record<string, number> = {
+  'Селф': 18,
+  'З наставником': 7,
+  'Зі мною': 2,
+}
+
 export const MainPage = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [packages, setPackages] = useState<Package[]>([]);
@@ -120,18 +126,22 @@ export const MainPage = () => {
       <section className={css.packages} ref={packagesRef}>
         <div className={css.container}>
           <div className={css.packagesList}>
-            {Boolean(packages.length) && packages.map(({ id, name, benefits, price }) => (
-              <div className={css.packagesItem} key={id}>
-                <div className={css.packagesTitle}>{name}</div>
-                <div className={css.packagesPrice}>Ціна: ${price}</div>
-                <ol className={css.benefits}>
-                  {Boolean(benefits.length) && benefits.map(item => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ol>
-                <button className={css.button} onClick={() => handleChoosePackage(id)}>Придбати</button>
-              </div>
-            ))}
+            {Boolean(packages.length) && packages.map(({ id, name, benefits, price, available_places }) => {
+              const isDisabled = available_places === 0;
+              return (
+                <div className={css.packagesItem} key={id}>
+                  <div className={css.packagesTitle}>{name}</div>
+                  <div className={css.packagesPrice}>Ціна: ${price}</div>
+                  <div className={css.availablePlaces}>Вільних місць: {available_places > 0 ? availablePlacesMock[name] : 'немає'}</div>
+                  <ol className={css.benefits}>
+                    {Boolean(benefits.length) && benefits.map(item => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ol>
+                  <button className={css.button} onClick={() => handleChoosePackage(id)} disabled={isDisabled}>Придбати</button>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>

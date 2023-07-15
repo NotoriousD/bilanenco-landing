@@ -69,10 +69,9 @@
         "orders": {
           "deploymentBucketName": "amplify-landing-prod-171414-deployment",
           "s3Key": "amplify-builds/orders-755a3742364a66523266-build.zip",
-          "paymentUrl": "https://api.monobank.ua",
-          "paymentToken": "uMrNxUXalAKYIzenGmChD1xOmqOM43imyF5MUUMqmrEA",
           "redirectUrl": "https://workshop.bilanenco.com",
-          "callbackUrl": "https://0v7g4runni.execute-api.eu-west-1.amazonaws.com/prod"
+          "callbackUrl": "https://0v7g4runni.execute-api.eu-west-1.amazonaws.com/prod",
+          "paymentUrl": "https://api.monobank.ua"
         },
         "packages": {
           "deploymentBucketName": "amplify-landing-prod-171414-deployment",
@@ -81,7 +80,7 @@
         "status": {
           "deploymentBucketName": "amplify-landing-prod-171414-deployment",
           "s3Key": "amplify-builds/status-696d664c695752446235-build.zip",
-          "googleSheetsKey": "1-9Zjv0iCfa-erQmi9-TSf7N422Vb788wnESNPuFeOGc"
+          "googleSheetsKey": "15vP2ZWYUQ_qlflmlRGUEq-hSbkd933Avkpf02CpFxqs"
         }
       },
       "api": {
