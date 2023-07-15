@@ -155,7 +155,7 @@ export const Registration: React.FC<Props> = ({ packageId, packages, onClose }) 
                   Тариф
                 </InputLabel>
                 <Select
-                  {...register('course_id', { value: packageId })}
+                  {...register('course_id')}
                   className={css.select}
                   label="Тариф"
                   disabled={isSubmitting}
