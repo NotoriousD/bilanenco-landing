@@ -31,10 +31,10 @@
         "orders": {
           "deploymentBucketName": "amplify-landing-dev-223805-deployment",
           "s3Key": "amplify-builds/orders-6969704651426e795a61-build.zip",
-          "paymentUrl": "https://api.monobank.ua",
-          "paymentToken": "uMrNxUXalAKYIzenGmChD1xOmqOM43imyF5MUUMqmrEA",
           "redirectUrl": "https://workshop-dev.bilanenco.com",
-          "callbackUrl": "https://6f3johudk1.execute-api.eu-west-1.amazonaws.com/dev"
+          "callbackUrl": "https://6f3johudk1.execute-api.eu-west-1.amazonaws.com/dev",
+          "paymentUrl": "https://api.monobank.ua",
+          "secretsPathAmplifyAppId": "dldcl29opl4t2"
         },
         "status": {
           "deploymentBucketName": "amplify-landing-dev-223805-deployment",
@@ -68,18 +68,19 @@
       "function": {
         "orders": {
           "deploymentBucketName": "amplify-landing-prod-171414-deployment",
-          "s3Key": "amplify-builds/orders-755a3742364a66523266-build.zip",
+          "s3Key": "amplify-builds/orders-49694d716e3144646f6f-build.zip",
           "redirectUrl": "https://workshop.bilanenco.com",
           "callbackUrl": "https://0v7g4runni.execute-api.eu-west-1.amazonaws.com/prod",
-          "paymentUrl": "https://api.monobank.ua"
+          "paymentUrl": "https://api.monobank.ua",
+          "secretsPathAmplifyAppId": "dldcl29opl4t2"
         },
         "packages": {
           "deploymentBucketName": "amplify-landing-prod-171414-deployment",
-          "s3Key": "amplify-builds/packages-622f33784f5248477239-build.zip"
+          "s3Key": "amplify-builds/packages-62304557415744344368-build.zip"
         },
         "status": {
           "deploymentBucketName": "amplify-landing-prod-171414-deployment",
-          "s3Key": "amplify-builds/status-696d664c695752446235-build.zip",
+          "s3Key": "amplify-builds/status-4b75726656773844445a-build.zip",
           "googleSheetsKey": "15vP2ZWYUQ_qlflmlRGUEq-hSbkd933Avkpf02CpFxqs"
         }
       },

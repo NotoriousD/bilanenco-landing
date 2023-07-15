@@ -37,5 +37,8 @@
       "cloudFormationParameterName": "paymentUrl",
       "environmentVariableName": "PAYMENT_URL"
     }
+  ],
+  "secretNames": [
+    "PAYMENT_TOKEN"
   ]
 }
