@@ -32,7 +32,7 @@ interface Props {
 export const schema = yup.object().shape({
   fullName: yup.string().required("Введіть ваше ПІБ"),
   email: yup.string().email('Email не валідний').required("Введіть email"),
-  phone: yup.string().matches(/^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/, 'Неправильний номер телефону'),
+  phone: yup.string().matches(/^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/, 'Неправильний номер (38099999999)'),
   course_id: yup.string().required('Виберіть тариф'),
 });
 
