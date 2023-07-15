@@ -228,6 +228,46 @@
           "resourceName": "status"
         }
       ]
+    },
+    "AMPLIFY_storage_ordersdev_arn": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "ordersdev"
+        }
+      ]
+    },
+    "AMPLIFY_storage_ordersdev_partitionKeyName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "ordersdev"
+        }
+      ]
+    },
+    "AMPLIFY_storage_ordersdev_partitionKeyType": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "ordersdev"
+        }
+      ]
+    },
+    "AMPLIFY_storage_ordersdev_region": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "ordersdev"
+        }
+      ]
+    },
+    "AMPLIFY_storage_ordersdev_tableName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "ordersdev"
+        }
+      ]
     }
   },
   "storage": {
