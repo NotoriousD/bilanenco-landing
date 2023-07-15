@@ -12,7 +12,7 @@ import css from './main.module.scss';
 
 const availablePlacesMock: Record<string, number> = {
   'Селф': 12,
-  'З вчителем': 4,
+  'З вчителем': 7,
   'З Олександрою': 2,
 }
 
