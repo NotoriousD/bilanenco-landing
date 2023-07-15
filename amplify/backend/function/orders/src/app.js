@@ -157,6 +157,13 @@ const updageAvailablePlaces = async (req, res, next) => {
 }
 
 app.post('/orders', getPackageById, createOrder, updageAvailablePlaces, async function(req, res) {
+  const { Parameters } = await (new AWS.SSM())
+  .getParameters({
+    Names: ["PAYMENT_TOKEN"].map(secretName => process.env[secretName]),
+    WithDecryption: true,
+  })
+  .promise();
+  const PAYMENT_TOKEN = Parameters.pop().Value;
   try {
     const invoice = await monobankCreateInvoice({
       orderId: req.order.id,
@@ -166,6 +173,7 @@ app.post('/orders', getPackageById, createOrder, updageAvailablePlaces, async fu
       redirectUrl: `https://workshop${process.env.ENV === 'dev' ? '-dev' : ''}.bilanenco.com/thank-you`,
       webHookUrl: `${process.env.CALLBACK_URL}/status`,
       destination: `Оплата курсу WORKSHOP (${req.order.name})`,
+      token: PAYMENT_TOKEN,
     });
 
     if(invoice) {

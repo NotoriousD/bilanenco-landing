@@ -2,9 +2,6 @@ const axios = require('axios');
 
 const httpClient = axios.create({
     baseURL: process.env.PAYMENT_URL,
-    headers: {
-        ['X-Token']: process.env.PAYMENT_TOKEN,
-    }
 });
 
 const currencyCodes = {
@@ -33,7 +30,8 @@ exports.monobankCreateInvoice = async ({
     destination,
     name,
     redirectUrl,
-    webHookUrl
+    webHookUrl,
+    token,
 }) => {
     try {
         const response = await httpClient.post('/api/merchant/invoice/create', {
@@ -51,6 +49,10 @@ exports.monobankCreateInvoice = async ({
             },
             redirectUrl,
             webHookUrl,
+        }, {
+            headers: {
+                'X-Token': token,
+            }
         });
 
         if(response.data) {
