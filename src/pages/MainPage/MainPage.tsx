@@ -2,8 +2,8 @@ import React, { useState, useRef, useCallback, useEffect } from "react";
 import cx from 'classnames';
 import { API } from 'aws-amplify';
 
-import mainBanner from 'assets/main.jpg';
-import footerBanner from 'assets/footer.jpg';
+import mainBanner from 'assets/main.webp';
+import footerBanner from 'assets/footer.webp';
 import { ReactComponent as LogoIcon } from 'assets/logo.svg';
 
 import { Registration, Package } from "components/Registration";
@@ -11,9 +11,9 @@ import { Registration, Package } from "components/Registration";
 import css from './main.module.scss';
 
 const availablePlacesMock: Record<string, number> = {
-  'Селф': 18,
-  'З наставником': 7,
-  'Зі мною': 2,
+  'Селф': 12,
+  'З вчителем': 4,
+  'З Олександрою': 2,
 }
 
 export const MainPage = () => {
@@ -21,6 +21,11 @@ export const MainPage = () => {
   const [packages, setPackages] = useState<Package[]>([]);
   const [packageId, setPackageId] = useState<string>();
   const packagesRef = useRef<HTMLElement>(null);
+
+  const getAvailablePlaces = (name: string, places: number) => {
+    const fakePlaces = availablePlacesMock[name];
+    return places < fakePlaces ? places : fakePlaces;
+  }
 
   const handleOpenModal = () => {
     setOpenModal(true);
@@ -62,7 +67,7 @@ export const MainPage = () => {
       <div className={css.headerContent}>
         <div className={css.container}>
           <div className={css.headerTitle}>WORK<span className={css.accent}>ЖОП</span></div>
-          <div className={css.headerText}>Курс воркжопу, я маю сумніви, що є таке слово, але я пишу цей текст від балди, адже він мені потрібен тільки для краси</div>
+          <div className={css.headerText}> Тижневий онлайн воркшоп з віжуалу, мета котрого полягає аби ви отримали результат у вигляді унікального віжуалу на місяць вперед всього лиш за 5 днів. Отримали сильну базу, здобули практичні навички, розширили ваше бачення, нащупали власний стиль та сенси, зловили віжуал інсайти.</div>
           <div className={css.btnWrapper}><button className={css.button} onClick={scrollToPackages}>Записатися</button></div>
           <LogoIcon className={css.logo} />
         </div>
@@ -76,14 +81,14 @@ export const MainPage = () => {
             <div className={cx(css.contentItem, css.mobile, css.left, css.leftNumPosition)}>
               <div className={css.contentItemNum}>1</div>
               <div className={css.contentItemTitle}>Віжуал анпакінг</div>
-              <div className={css.contentItemText}>Курс воркжопу, я маю сумніви, що є таке слово, але я пишу цей текст від балди, адже він мені потрібен тільки для краси. Рибний текст, для краси пишу від душі</div>
+              <div className={css.contentItemText}>Ділюсь своїм баченням віжуалу, розширюю горизонти за допомогою огляду різних авторів та їх сенсів, ознайомлюю з годними кейсами розпакування сенсів. Проходимо детальне віжуал розпакування, котре напрацьоване  роками та доведене до досконалості аби якісно розпакувати вашу особистість, сенси та стиль.</div>
             </div>
           </div>
           <div className={css.contentRow}>
             <div className={cx(css.contentItem, css.mobile, css.right, css.rightNumPosition)}>
               <div className={css.contentItemNum}>2</div>
               <div className={css.contentItemTitle}>Робота з рефами</div>
-              <div className={css.contentItemText}>Курс воркжопу, я маю сумніви, що є таке слово, але я пишу цей текст від балди, адже він мені потрібен тільки для краси. Рибний текст, для краси пишу від душі</div>
+              <div className={css.contentItemText}>Руйную стереотипи роботи з референсами, ділюсь методами роботи з ними, аналізуємо роботу інфлюенсерів з рефами, джерела референсів. Візуалізуємо ваші сенси.</div>
             </div>
             <div className={css.contentItem}></div>
           </div>
@@ -92,7 +97,7 @@ export const MainPage = () => {
             <div className={cx(css.contentItem, css.mobile, css.left, css.leftNumPosition)}>
               <div className={css.contentItemNum}>3</div>
               <div className={css.contentItemTitle}>Розробка віжуалу</div>
-              <div className={css.contentItemText}>Курс воркжопу, я маю сумніви, що є таке слово, але я пишу цей текст від балди, адже він мені потрібен тільки для краси. Рибний текст, для краси пишу від душі</div>
+              <div className={css.contentItemText}>Наглядно ділюсь своєю методологією розробки візуальної концепції з референсів та логікою створення годного віжуалу. Віжуал інстайти, виключення з «правил», робота з кольором та його вижимка, віжуал без кольору, прийоми в візуалі, повітря. Практичне завдання- розробка власного віжуалу з рефів за прикладом з уроку.</div>
             </div>
           </div>
         </div>
@@ -107,8 +112,8 @@ export const MainPage = () => {
             <div className={css.contentRow}>
               <div className={cx(css.contentItem, css.mobile, css.right, css.rightNumPosition)}>
                 <div className={css.contentItemNum}>4</div>
-                <div className={cx(css.contentItemTitle, css.accent)}>Обробка</div>
-                <div className={cx(css.contentItemText, css.accent)}>Курс воркжопу, я маю сумніви, що є таке слово, але я пишу цей текст від балди, адже він мені потрібен тільки для краси. Рибний текст, для краси пишу від душі</div>
+                <div className={cx(css.contentItemTitle, css.accent)}>Реалізація віжуалу</div>
+                <div className={cx(css.contentItemText, css.accent)}>Секрет реалізації задуманого віжуалу за одну зйомку, рекомендації щодо зйомки: освітленність, чистота, візуальний шум, налаштування, фішки селф-зйомки, додаткові пристрої. Практичне завдання- зйомка.</div>
               </div>
               <div className={css.contentItem}></div>
             </div>
@@ -117,7 +122,7 @@ export const MainPage = () => {
               <div className={cx(css.contentItem, css.mobile, css.noBorder, css.left, css.leftNumPosition)}>
                 <div className={css.contentItemNum}>5</div>
                 <div className={cx(css.contentItemTitle, css.accent)}>Готовий віжуал</div>
-                <div className={cx(css.contentItemText, css.accent)}>Курс воркжопу, я маю сумніви, що є таке слово, але я пишу цей текст від балди, адже він мені потрібен тільки для краси. Рибний текст, для краси пишу від душі</div>
+                <div className={cx(css.contentItemText, css.accent)}>Расказиваю і паказиваю як з сирих кадрів реалізовую референс та витягую омріяний віжуал, чим і як користуюсь. Обкладинки рілс, інтеграція контенту в моменті. Конспект з топовими додатками по обробці. Практичне завдання- перевтілення сирих кадрів та складення віжуалу відповідно задуманого віжуалу з рефів.</div>
               </div>
             </div>
           </div>
@@ -132,7 +137,7 @@ export const MainPage = () => {
                 <div className={css.packagesItem} key={id}>
                   <div className={css.packagesTitle}>{name}</div>
                   <div className={css.packagesPrice}>Ціна: ${price}</div>
-                  <div className={css.availablePlaces}>Вільних місць: {available_places > 0 ? availablePlacesMock[name] : 'немає'}</div>
+                  <div className={css.availablePlaces}>Вільних місць: {available_places > 0 ? getAvailablePlaces(name, available_places) : 'немає'}</div>
                   <ol className={css.benefits}>
                     {Boolean(benefits.length) && benefits.map(item => (
                       <li key={item}>{item}</li>

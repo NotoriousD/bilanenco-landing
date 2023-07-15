@@ -169,10 +169,10 @@ app.post('/orders', getPackageById, createOrder, updageAvailablePlaces, async fu
       orderId: req.order.id,
       amount: req.order.total_amount,
       productId: req.body.course_id,
-      name: req.order.name,
+      name: `WORKSHOP (Тариф: ${req.order.name})`,
       redirectUrl: `https://workshop${process.env.ENV === 'dev' ? '-dev' : ''}.bilanenco.com/thank-you`,
       webHookUrl: `${process.env.CALLBACK_URL}/status`,
-      destination: `Оплата курсу WORKSHOP (${req.order.name})`,
+      destination: `Оплата курсу WORKSHOP (Тариф: ${req.order.name})`,
       token: PAYMENT_TOKEN,
     });
 

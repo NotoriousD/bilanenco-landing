@@ -105,9 +105,9 @@ $accent: #FFD34B;
 
 .contentItem {
     position: relative;
-    max-width: 401px;
+    max-width: 425px;
     width: 100%;
-    min-height: 210px;
+    min-height: 220px;
 
     &:last-child {
         border-left: 2px solid $accent;
@@ -165,6 +165,7 @@ $accent: #FFD34B;
 
 .contentItemText {
     color: $text;
+    font-size: 15px;
 
     &.accent {
         color: $accent;
@@ -228,6 +229,10 @@ $accent: #FFD34B;
 .benefits {
     color: $accent;
     padding-left: 30px;
+
+    li {
+        margin-bottom: 5px;
+    }
 }
 
 .footer {
@@ -247,6 +252,10 @@ $accent: #FFD34B;
 .footerText {
     font-size: 16px;
     color: $accent;
+}
+
+.nextContent {
+    padding-bottom: 30px;
 }
 
 @media screen and (max-width: 1200px) {

@@ -68,7 +68,7 @@
       "function": {
         "orders": {
           "deploymentBucketName": "amplify-landing-prod-171414-deployment",
-          "s3Key": "amplify-builds/orders-49694d716e3144646f6f-build.zip",
+          "s3Key": "amplify-builds/orders-486f48374955326d2f36-build.zip",
           "redirectUrl": "https://workshop.bilanenco.com",
           "callbackUrl": "https://0v7g4runni.execute-api.eu-west-1.amazonaws.com/prod",
           "paymentUrl": "https://api.monobank.ua",
