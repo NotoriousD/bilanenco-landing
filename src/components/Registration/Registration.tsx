@@ -152,12 +152,12 @@ export const Registration: React.FC<Props> = ({ packageId, packages, onClose }) 
             <div className={css.row}>
               <FormControl className={css.selectWrapper}>
                 <InputLabel className={css.selectLabel}>
-                  Виберіть пакет
+                  Тариф
                 </InputLabel>
                 <Select
                   {...register('course_id', { value: packageId })}
                   className={css.select}
-                  label="Тип відносин"
+                  label="Тариф"
                   disabled={isSubmitting}
                 >
                   {getEnumOptions.map(({ label, value }) => (
