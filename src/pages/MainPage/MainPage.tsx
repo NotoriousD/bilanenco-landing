@@ -2,8 +2,8 @@ import React, { useState, useRef, useCallback, useEffect } from "react";
 import cx from 'classnames';
 import { API } from 'aws-amplify';
 
-import mainBanner from 'assets/main.webp';
-import footerBanner from 'assets/footer.webp';
+import mainBanner from 'assets/main.jpg';
+import footerBanner from 'assets/footer.jpg';
 import { ReactComponent as LogoIcon } from 'assets/logo.svg';
 
 import { Registration, Package } from "components/Registration";
