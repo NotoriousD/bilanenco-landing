@@ -11,8 +11,8 @@ import { Registration, Package } from "components/Registration";
 import css from './main.module.scss';
 
 const availablePlacesMock: Record<string, number> = {
-  'Селф': 12,
-  'З вчителем': 7,
+  'Селф': 10,
+  'З вчителем': 6,
   'З Олександрою': 2,
 }
 
