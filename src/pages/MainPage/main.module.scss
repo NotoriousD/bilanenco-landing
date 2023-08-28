@@ -373,3 +373,10 @@ $accent: #FFD34B;
         transform: translateX(-50%);
     }
 }
+
+.packagesText {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    color: $accent;
+}

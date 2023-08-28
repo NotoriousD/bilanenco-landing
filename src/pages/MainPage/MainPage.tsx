@@ -39,25 +39,25 @@ export const MainPage = () => {
     packagesRef?.current?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  const handleChoosePackage = (id: string) => {
-    setPackageId(id);
-    handleOpenModal();
-  }
+  // const handleChoosePackage = (id: string) => {
+  //   setPackageId(id);
+  //   handleOpenModal();
+  // }
 
-  const fetchPackages = useCallback(async () => {
-    try {
-      const response = await API.get('packages', '/packages', {});
-      if (response.data) {
-        setPackages(response.data.Items.reverse());
-      }
-    } catch (e) {
-      console.log(e);
-    }
-  }, []);
+  // const fetchPackages = useCallback(async () => {
+  //   try {
+  //     const response = await API.get('packages', '/packages', {});
+  //     if (response.data) {
+  //       setPackages(response.data.Items.reverse());
+  //     }
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // }, []);
 
-  useEffect(() => {
-    fetchPackages();
-  }, [fetchPackages]);
+  // useEffect(() => {
+  //   fetchPackages();
+  // }, [fetchPackages]);
 
   return <div className={css.root}>
     {openModal && packageId && packages.length && <Registration packageId={packageId} packages={packages} onClose={handleCloseModal} />}
@@ -130,7 +130,7 @@ export const MainPage = () => {
       </div>
       <section className={css.packages} ref={packagesRef}>
         <div className={css.container}>
-          <div className={css.packagesList}>
+          {/* <div className={css.packagesList}>
             {Boolean(packages.length) && packages.map(({ id, name, benefits, price, available_places }) => {
               const isDisabled = available_places === 0;
               return (
@@ -147,6 +147,10 @@ export const MainPage = () => {
                 </div>
               )
             })}
+            
+          </div> */}
+          <div className={css.packagesText}>
+            Реєстрація закрита
           </div>
         </div>
       </section>
